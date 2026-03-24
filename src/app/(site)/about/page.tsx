@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Download, MapPin, Calendar } from "lucide-react";
 import { GridPattern } from "@/components/visuals/GridPattern";
@@ -228,74 +229,32 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* ── Right column: photo placeholder ── */}
+          {/* ── Right column: photo ── */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            {/* Photo placeholder card */}
+            {/* Profile photo */}
             <div
-              className="relative overflow-hidden rounded-2xl flex items-center justify-center"
+              className="relative overflow-hidden rounded-2xl"
               style={{
                 aspectRatio: "3 / 4",
-                background: "var(--surface)",
                 border: "1px solid var(--border)",
                 boxShadow: "var(--shadow-md)",
               }}
             >
-              {/* Inner grid texture on the placeholder */}
-              <GridPattern cellSize={24} opacity={0.055} />
-
-              {/* Subtle accent glow in the corner */}
+              <Image
+                src="/images/profile.jpeg"
+                alt="Mihaly Kocziha"
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
+              {/* Subtle bottom fade overlay */}
               <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -top-16 -right-16 w-48 h-48 rounded-full"
+                className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
                 style={{
-                  background:
-                    "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)",
-                  filter: "blur(32px)",
+                  background: "linear-gradient(to top, rgba(8,8,8,0.5) 0%, transparent 100%)",
                 }}
               />
-
-              <div
-                className="relative flex flex-col items-center gap-3 px-6 text-center"
-                aria-label="Profile photo placeholder"
-              >
-                {/* Stylised avatar outline */}
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{
-                    border: "1px solid rgba(59,130,246,0.25)",
-                    background: "rgba(59,130,246,0.06)",
-                  }}
-                >
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <circle
-                      cx="12"
-                      cy="8"
-                      r="4"
-                      stroke="rgba(59,130,246,0.5)"
-                      strokeWidth="1.25"
-                    />
-                    <path
-                      d="M4 20c0-4 3.582-7 8-7s8 3 8 7"
-                      stroke="rgba(59,130,246,0.5)"
-                      strokeWidth="1.25"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-                <p
-                  className="text-xs font-medium tracking-wide"
-                  style={{ color: "var(--muted-foreground)" }}
-                >
-                  Photo coming soon
-                </p>
-              </div>
             </div>
 
             {/* Quick facts card */}
