@@ -151,48 +151,45 @@ export default function AboutPage() {
             >
               <p>
                 <strong style={{ color: "var(--foreground)" }}>
-                  It started with reporting nobody read.
+                  My career in data began in financial services.
                 </strong>{" "}
-                My first role at Citibank was building credit risk reports —
-                automated SQL Server and SAS pipelines that transformed the
-                monthly reporting stack and improved efficiency by 30%. I moved
-                into information security BI, developing data warehouse
-                solutions with SSAS, SSIS, and SSRS. That early experience
-                taught me something that still drives my work: the most
-                impactful data initiatives solve business problems first and
-                technology problems second.
+                At Citibank, I built credit risk reporting and analytics
+                solutions — automated pipelines that improved the efficiency
+                of monthly reporting by 30%. I went on to develop business
+                intelligence and data warehouse solutions for information
+                security, working across the full SQL Server stack. Those
+                early years shaped a principle I still apply: the most
+                impactful data work starts with the business problem, not the
+                technology.
               </p>
 
               <p>
                 <strong style={{ color: "var(--foreground)" }}>
-                  At Euronet Worldwide, I learned to build organisations, not
-                  just systems.
+                  At Euronet Worldwide, I moved from building systems to
+                  building teams.
                 </strong>{" "}
-                Over eight years I went from finance systems developer to
-                engineering manager, building a team of 25+ professionals from
-                scratch. We designed an automated payments and invoicing system
-                that cut manual errors by 30% and sped up payment cycles by 15%.
-                I led the company&apos;s first move to Azure — reducing
-                operational costs by 10% — rolled out PowerBI as the standard
-                reporting tool, and built custom ETL software that boosted data
-                processing efficiency by 25%.
+                Over eight years I progressed from finance systems developer
+                to engineering manager, growing a team of 25+ professionals
+                across multiple locations. We delivered an automated payments
+                and invoicing platform that reduced manual errors by 30% and
+                accelerated payment cycles by 15%, pioneered the company&apos;s
+                adoption of Azure cloud services, and rolled out PowerBI as the
+                enterprise reporting standard.
               </p>
 
               <p>
                 <strong style={{ color: "var(--foreground)" }}>
-                  I founded the data practice at SMP Solutions from zero.
+                  At SMP Solutions, I established the data practice from the
+                  ground up.
                 </strong>{" "}
-                Starting in 2022, I hired the team, defined the delivery
-                methodology, and led implementations across banking and
-                manufacturing. We delivered enterprise data warehouses, cloud
-                migrations that reduced infrastructure costs by 25%, and CRM
-                implementations that measurably improved client relationship
-                management. A new data architecture framework sped up software
-                delivery by 35% across all client projects, and cloud-based
-                analytics solutions boosted data-driven decision-making by 30%.
-                I established both the AI engineering team — improving internal
-                development with modern AI tools — and the AI development team,
-                delivering machine learning solutions to customers.
+                Starting in 2022, I built the team, defined the delivery
+                methodology, and led engagements across banking and
+                manufacturing. Key outcomes included enterprise data warehouse
+                implementations, cloud migrations that reduced infrastructure
+                costs by 25%, and a data architecture framework that improved
+                software delivery times by 35%. I also founded the AI
+                engineering and development teams, bringing machine learning
+                capabilities to both internal processes and client solutions.
               </p>
 
               <p>
@@ -200,26 +197,23 @@ export default function AboutPage() {
                   Today I lead consulting across data, AI, and banking
                   solutions.
                 </strong>{" "}
-                That means multiple specialist teams: data strategy consultants
-                and business analysts, a banking core system migration team,
-                a unified front-end solutions team, and an AI applications
-                group. Our clients span banking, healthcare, retail, sports,
-                agriculture, and manufacturing. I sit between technical teams
-                and C-level stakeholders, making sure project objectives align
-                with business strategy — and I contribute to business
-                development through go-to-market strategy and client workshops.
+                My remit covers multiple specialist teams — data strategy
+                consultants, banking core system migration, unified front-end
+                solutions, and AI applications — serving clients in banking,
+                healthcare, retail, sports, agriculture, and manufacturing.
+                I work closely with both technical teams and C-level
+                stakeholders to align project delivery with business strategy.
               </p>
 
               <p>
                 <strong style={{ color: "var(--foreground)" }}>
-                  My technical roots are in the Microsoft Azure ecosystem.
+                  My technical foundation is in the Microsoft Azure ecosystem.
                 </strong>{" "}
                 Databricks, Data Factory, Synapse Analytics, and increasingly
                 Microsoft Fabric. I hold certifications in Azure Data
                 Engineering, Power BI, and Databricks Lakehouse. This blog is
-                where I share what I see in the field — practical perspectives
-                on data strategy, AI implementation, and the realities of
-                enterprise consulting.
+                where I share practical perspectives on data strategy, AI
+                implementation, and enterprise consulting.
               </p>
             </div>
           </div>
