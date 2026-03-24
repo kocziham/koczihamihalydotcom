@@ -406,3 +406,145 @@
   width: 100%;
   background: var(--accent);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   PROSE DARK — MDX / long-form article content
+   Used on blog post pages via className="prose-dark"
+   ───────────────────────────────────────────────────────────── */
+.prose-dark {
+  color: var(--foreground);
+  font-size: 1.0625rem;       /* 17px — easier reading than 16px */
+  line-height: 1.75;
+  max-width: 68ch;
+}
+
+/* Headings */
+.prose-dark h1,
+.prose-dark h2,
+.prose-dark h3,
+.prose-dark h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--foreground);
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+}
+.prose-dark h1 { font-size: 2rem; }
+.prose-dark h2 { font-size: 1.5rem; }
+.prose-dark h3 { font-size: 1.2rem; }
+.prose-dark h4 { font-size: 1.05rem; }
+
+/* First heading directly after the header needs less top margin */
+.prose-dark > h2:first-child,
+.prose-dark > h3:first-child {
+  margin-top: 0;
+}
+
+/* Paragraphs */
+.prose-dark p {
+  margin-top: 0;
+  margin-bottom: 1.35em;
+  color: var(--foreground);
+  opacity: 0.9;
+}
+
+/* Links */
+.prose-dark a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(59, 130, 246, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--duration-fast) ease,
+              opacity var(--duration-fast) ease;
+}
+.prose-dark a:hover {
+  text-decoration-color: var(--accent);
+  opacity: 0.85;
+}
+
+/* Inline code */
+.prose-dark code:not(pre > code) {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* Code blocks */
+.prose-dark pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-top: 0;
+  margin-bottom: 1.75em;
+}
+.prose-dark pre > code {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--foreground);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Blockquote */
+.prose-dark blockquote {
+  margin: 1.75em 0;
+  padding: 0.75em 1.25em;
+  border-left: 3px solid var(--accent);
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+.prose-dark blockquote p {
+  margin-bottom: 0;
+  opacity: 1;
+}
+
+/* Lists */
+.prose-dark ul,
+.prose-dark ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.35em;
+}
+.prose-dark ul { list-style-type: disc; }
+.prose-dark ol { list-style-type: decimal; }
+.prose-dark li {
+  margin-bottom: 0.4em;
+  color: var(--foreground);
+  opacity: 0.9;
+}
+.prose-dark li::marker {
+  color: var(--accent);
+  opacity: 0.6;
+}
+
+/* Horizontal rule */
+.prose-dark hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5em 0;
+}
+
+/* Strong / em */
+.prose-dark strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.prose-dark em {
+  color: var(--muted-foreground);
+  font-style: italic;
+}
