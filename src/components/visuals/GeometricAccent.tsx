@@ -1,24 +1,16 @@
 /**
- * GeometricAccent — abstract technical line art
+ * GeometricAccent — abstract topographic contour lines
  *
  * An SVG composition of:
- *   - A sparse constellation: small node circles connected by thin edges
- *   - Two overlapping arcs suggesting orbits or data relationships
- *   - A faint outer ring
+ *   - Flowing contour/isoline curves at varying opacities
+ *   - Small marker dots at key intersections
+ *   - A subtle radial fade at the edges
  *
- * The "data graph" aesthetic nods to Mihaly's background in data
- * engineering and AI without being literal or on-the-nose.
+ * The topographic aesthetic nods to data landscapes and terrain mapping
+ * without being a literal graph or chart.
  *
- * Animation: the entire group slow-rotates (30s cycle) and the nodes
- * subtly pulse opacity on their own offsets for a breathing effect.
- * Both animations are suppressed by prefers-reduced-motion.
- *
- * Design choices:
- * - Stroke width 0.6–1px — below the threshold of "visible design
- *   element", reads as texture at a distance
- * - Opacity 0.13–0.18 in accent blue — present but never competing
- * - Size 360px — large enough to cover a corner, small enough not to
- *   dominate on mobile
+ * Animation: contour lines slowly shift with a dash-offset animation
+ * and markers gently pulse. Both suppressed by prefers-reduced-motion.
  */
 
 interface GeometricAccentProps {
@@ -29,30 +21,6 @@ interface GeometricAccentProps {
   color?: string;
 }
 
-/* Node positions (normalised 0–100 within the viewBox 0 0 100 100) */
-const NODES: Array<{ cx: number; cy: number; r: number }> = [
-  { cx: 50, cy: 50, r: 1.4 },  // centre
-  { cx: 22, cy: 28, r: 1.0 },  // top-left
-  { cx: 76, cy: 20, r: 1.2 },  // top-right
-  { cx: 80, cy: 68, r: 1.0 },  // right
-  { cx: 35, cy: 78, r: 0.9 },  // bottom-left
-  { cx: 60, cy: 36, r: 0.75 }, // mid cluster 1
-  { cx: 42, cy: 55, r: 0.75 }, // mid cluster 2
-  { cx: 18, cy: 60, r: 0.8 },  // left
-  { cx: 68, cy: 82, r: 0.9 },  // bottom-right
-];
-
-/* Edges (pairs of NODES indices) */
-const EDGES: Array<[number, number]> = [
-  [0, 5], [0, 6], [0, 2],
-  [1, 5], [1, 6], [1, 7],
-  [2, 5], [2, 3],
-  [3, 0], [3, 8],
-  [4, 6], [4, 7], [4, 8],
-  [5, 6],
-  [7, 6],
-];
-
 export function GeometricAccent({
   className = "",
   size = 360,
@@ -60,23 +28,18 @@ export function GeometricAccent({
 }: GeometricAccentProps) {
   return (
     <>
-      {/* Keyframes injected inline so the component is self-contained */}
       <style>{`
-        @keyframes geo-rotate {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
+        @keyframes contour-flow {
+          from { stroke-dashoffset: 0; }
+          to   { stroke-dashoffset: -60; }
         }
-        @keyframes geo-pulse-a {
-          0%, 100% { opacity: 0.9; }
-          50%       { opacity: 0.45; }
-        }
-        @keyframes geo-pulse-b {
-          0%, 100% { opacity: 0.5; }
-          50%       { opacity: 0.95; }
+        @keyframes marker-pulse {
+          0%, 100% { opacity: 0.6; r: 1; }
+          50%      { opacity: 1; r: 1.4; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .geo-rotate { animation: none !important; }
-          .geo-node   { animation: none !important; }
+          .contour-line { animation: none !important; }
+          .contour-marker { animation: none !important; }
         }
       `}</style>
 
@@ -90,82 +53,91 @@ export function GeometricAccent({
         xmlns="http://www.w3.org/2000/svg"
         style={{ overflow: "visible" }}
       >
-        {/*
-         * Outer ring — faint reference circle that the constellation
-         * feels loosely inscribed within
-         */}
-        <circle
-          cx="50"
-          cy="50"
-          r="44"
-          stroke={color}
-          strokeWidth="0.5"
-          strokeDasharray="2 5"
-          opacity="0.35"
-        />
+        <defs>
+          <radialGradient id="contour-fade" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="white" stopOpacity="1" />
+            <stop offset="85%" stopColor="white" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
+          </radialGradient>
+          <mask id="contour-mask">
+            <rect width="100" height="100" fill="url(#contour-fade)" />
+          </mask>
+        </defs>
 
-        {/*
-         * Rotating group — the entire graph slowly turns.
-         * transform-origin must be the SVG centre (50 50 in userSpace).
-         */}
-        <g
-          className="geo-rotate"
-          style={{
-            transformOrigin: "50px 50px",
-            animation: "geo-rotate 32s linear infinite",
-          }}
-        >
-          {/* Overlapping arcs — data relationship suggestion */}
-          <ellipse
-            cx="50"
-            cy="50"
-            rx="28"
-            ry="16"
-            stroke={color}
-            strokeWidth="0.75"
-            opacity="0.4"
-            transform="rotate(-20, 50, 50)"
-          />
-          <ellipse
-            cx="50"
-            cy="50"
-            rx="20"
-            ry="30"
-            stroke={color}
-            strokeWidth="0.75"
-            opacity="0.3"
-            transform="rotate(35, 50, 50)"
-          />
-
-          {/* Constellation edges */}
-          {EDGES.map(([a, b], i) => (
-            <line
+        <g mask="url(#contour-mask)">
+          {/* Contour lines — organic flowing curves */}
+          {[
+            { d: "M 15,50 Q 30,20 50,25 T 85,45", opacity: 0.3, delay: "0s" },
+            { d: "M 10,60 Q 35,35 55,38 T 90,55", opacity: 0.25, delay: "2s" },
+            { d: "M 20,70 Q 40,45 58,48 T 88,65", opacity: 0.2, delay: "4s" },
+            { d: "M 12,40 Q 28,15 48,18 T 82,35", opacity: 0.35, delay: "1s" },
+            { d: "M 18,80 Q 42,58 60,60 T 92,75", opacity: 0.15, delay: "3s" },
+            { d: "M 8,30 Q 25,8 45,12 T 78,28", opacity: 0.2, delay: "5s" },
+            { d: "M 25,88 Q 48,68 65,70 T 95,82", opacity: 0.12, delay: "6s" },
+            { d: "M 5,48 Q 22,28 42,30 T 75,42", opacity: 0.28, delay: "1.5s" },
+          ].map((line, i) => (
+            <path
               key={i}
-              x1={NODES[a].cx}
-              y1={NODES[a].cy}
-              x2={NODES[b].cx}
-              y2={NODES[b].cy}
+              d={line.d}
               stroke={color}
-              strokeWidth="0.7"
-              opacity="0.45"
+              strokeWidth="0.6"
+              opacity={line.opacity}
               strokeLinecap="round"
+              strokeDasharray="4 3"
+              className="contour-line"
+              style={{
+                animation: `contour-flow 20s linear infinite`,
+                animationDelay: line.delay,
+              }}
             />
           ))}
 
-          {/* Constellation nodes — alternating pulse animations */}
-          {NODES.map((node, i) => (
-            <circle
-              key={i}
-              cx={node.cx}
-              cy={node.cy}
-              r={node.r}
-              fill={color}
-              opacity="0.7"
-              className="geo-node"
+          {/* Secondary set — perpendicular-ish curves for depth */}
+          {[
+            { d: "M 40,10 Q 20,35 22,55 T 38,90", opacity: 0.18, delay: "0.5s" },
+            { d: "M 55,8 Q 38,30 40,50 T 52,92", opacity: 0.15, delay: "2.5s" },
+            { d: "M 68,12 Q 52,32 54,52 T 65,88", opacity: 0.12, delay: "4.5s" },
+            { d: "M 30,5 Q 15,28 18,48 T 28,95", opacity: 0.2, delay: "1.5s" },
+            { d: "M 78,15 Q 65,38 66,55 T 76,85", opacity: 0.1, delay: "3.5s" },
+          ].map((line, i) => (
+            <path
+              key={`v-${i}`}
+              d={line.d}
+              stroke={color}
+              strokeWidth="0.5"
+              opacity={line.opacity}
+              strokeLinecap="round"
+              strokeDasharray="2 4"
+              className="contour-line"
               style={{
-                animation: i % 2 === 0
-                  ? `geo-pulse-a ${3.5 + i * 0.7}s ease-in-out infinite`
-                  : `geo-pulse-b ${4 + i * 0.6}s ease-in-out infinite`,
+                animation: `contour-flow 25s linear infinite`,
+                animationDelay: line.delay,
+              }}
+            />
+          ))}
+
+          {/* Intersection markers — small dots where contours conceptually cross */}
+          {[
+            { cx: 50, cy: 25, delay: "0s" },
+            { cx: 55, cy: 38, delay: "1.2s" },
+            { cx: 42, cy: 30, delay: "2.4s" },
+            { cx: 60, cy: 60, delay: "0.8s" },
+            { cx: 35, cy: 55, delay: "3.1s" },
+            { cx: 48, cy: 48, delay: "1.8s" },
+            { cx: 65, cy: 70, delay: "2.8s" },
+            { cx: 28, cy: 42, delay: "0.4s" },
+          ].map((marker, i) => (
+            <circle
+              key={`m-${i}`}
+              cx={marker.cx}
+              cy={marker.cy}
+              r="1"
+              fill={color}
+              opacity="0.6"
+              className="contour-marker"
+              style={{
+                animation: `marker-pulse ${3 + i * 0.5}s ease-in-out infinite`,
+                animationDelay: marker.delay,
               }}
             />
           ))}

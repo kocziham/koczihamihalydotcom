@@ -18,28 +18,28 @@ const TIMELINE = [
     role: "Analyst, Data & Reporting",
     company: "Citibank",
     description:
-      "Started in financial services data — building reporting pipelines and learning what it means to make data reliable under real operational pressure.",
+      "Built reporting and analytics pipelines within financial services, establishing a foundation in data reliability and operational data management.",
   },
   {
     year: "2013",
     role: "Engineering Manager",
     company: "Euronet Worldwide",
     description:
-      "Led engineering teams delivering payment and transaction data platforms across multiple markets. First significant exposure to cross-border data architecture and stakeholder complexity.",
+      "Led engineering teams responsible for payment and transaction data platforms across multiple markets, managing cross-border data architecture and multi-stakeholder delivery.",
   },
   {
     year: "2018",
     role: "Head of Data",
     company: "SMP Solutions",
     description:
-      "Built and scaled the data practice from the ground up — hired the team, shaped the methodology, and delivered Azure and Databricks implementations for enterprise clients.",
+      "Founded and scaled the data consulting practice — building the team, defining delivery methodology, and leading Azure and Databricks implementations for enterprise clients.",
   },
   {
     year: "2022",
     role: "Head of Consulting",
     company: "SMP Solutions",
     description:
-      "Expanded remit to own the full consulting portfolio: sales, delivery, client relationships, and practice development. Focus on AI strategy and enterprise-scale data transformation.",
+      "Leading the full consulting portfolio encompassing sales, delivery, client relationships, and practice growth — with a strategic focus on AI adoption and enterprise-scale data transformation.",
   },
 ] as const;
 
@@ -120,11 +120,10 @@ export default function AboutPage() {
               maxWidth: "560px",
             }}
           >
-            I help organisations build the data and AI capabilities they need to
-            actually use what they collect. That means platforms, teams,
-            strategy — and occasionally talking clients out of ideas that
-            sound good in a boardroom but don&apos;t survive contact with a data
-            warehouse.
+            I advise organisations on building scalable data platforms and
+            adopting AI with a clear return on investment — from technical
+            architecture and team design to enterprise-wide strategy and
+            delivery governance.
           </p>
 
           {/* Location + download */}
@@ -172,31 +171,32 @@ export default function AboutPage() {
                 style={{ color: "var(--muted-foreground)" }}
               >
                 <p>
-                  I started in financial services data at Citibank — writing
-                  reports nobody asked for, then gradually learning which ones
-                  people actually needed. That distinction has shaped how I
-                  think about data work ever since: the problem is rarely
-                  technical.
+                  My career in data began at Citibank, where I developed
+                  reporting and analytics solutions within financial services.
+                  That early experience instilled a principle that continues to
+                  guide my work: the most impactful data initiatives solve
+                  business problems first and technology problems second.
                 </p>
                 <p>
-                  After a stint in engineering management at Euronet Worldwide,
-                  I moved into consulting at SMP Solutions. I built the data
-                  practice from scratch, then took on the full consulting
-                  portfolio. Today I run a team of consultants, oversee client
-                  engagements across industries, and spend most of my time at
-                  the intersection of data strategy and organisational change.
+                  Following an engineering management role at Euronet Worldwide,
+                  I joined SMP Solutions to establish and grow the data
+                  practice. Today, as Head of Consulting, I lead a team of
+                  specialist consultants, oversee client engagements across
+                  industries, and focus on the intersection of data strategy,
+                  AI adoption, and organisational transformation.
                 </p>
                 <p>
-                  On the technical side, I work primarily in the Azure
-                  ecosystem — Databricks, Azure Data Factory, Synapse, and
-                  increasingly AI services. I&apos;m not a hands-on engineer
-                  day-to-day, but I know enough to call out bad architecture
-                  before it ships.
+                  My technical foundation is rooted in the Microsoft Azure
+                  ecosystem — Databricks, Azure Data Factory, Synapse Analytics,
+                  and an expanding portfolio of AI and machine learning services.
+                  I maintain strong architectural fluency to ensure that the
+                  solutions we design are robust, scalable, and aligned with
+                  long-term business objectives.
                 </p>
                 <p>
-                  I write about what I see in the field — what works, what
-                  doesn&apos;t, and where the industry is collectively
-                  deluding itself.
+                  This blog is where I share perspectives from the field —
+                  practical insights on data strategy, AI implementation, and
+                  the realities of enterprise consulting.
                 </p>
               </div>
             </div>

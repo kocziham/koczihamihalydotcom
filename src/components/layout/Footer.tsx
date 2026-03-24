@@ -17,7 +17,7 @@ export function Footer() {
         </span>
 
         <Link
-          href="https://www.linkedin.com/in/koczihamihaly"
+          href="https://www.linkedin.com/in/kocziham/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 transition-colors duration-150 hover:text-foreground"
