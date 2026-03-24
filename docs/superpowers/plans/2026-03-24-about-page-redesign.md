@@ -296,9 +296,12 @@ Replace the placeholder `<div className="lg:order-1">` contents with:
                 </strong>{" "}
                 Starting in 2022, I hired the team, defined the delivery
                 methodology, and led implementations across banking and
-                manufacturing. Cloud migrations for major banks reduced
-                infrastructure costs by 25%. A new data architecture framework
-                sped up software delivery by 35% across all client projects.
+                manufacturing. We delivered enterprise data warehouses, cloud
+                migrations that reduced infrastructure costs by 25%, and CRM
+                implementations that measurably improved client relationship
+                management. A new data architecture framework sped up software
+                delivery by 35% across all client projects, and cloud-based
+                analytics solutions boosted data-driven decision-making by 30%.
                 I established both the AI engineering team — improving internal
                 development with modern AI tools — and the AI development team,
                 delivering machine learning solutions to customers.
