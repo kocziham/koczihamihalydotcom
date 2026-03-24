@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(brew install:*)",
+      "Bash(pdftotext /Users/koczihamihaly/Documents/koczihamihalydotcom/cv/Mihaly_Kocziha_CV.pdf -)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npx:*)"
+    ]
+  }
+}
