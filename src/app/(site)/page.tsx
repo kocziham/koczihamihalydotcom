@@ -8,7 +8,6 @@ import {
   ArrowRight,
   ChevronRight,
 } from "lucide-react";
-import { GridPattern } from "@/components/visuals/GridPattern";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { GeometricAccent } from "@/components/visuals/GeometricAccent";
 
@@ -79,20 +78,17 @@ export default function HomePage() {
         {/* Radial glow behind headline — existing */}
         <div className="hero-glow" aria-hidden="true" />
 
-        {/* Dot-grid texture — fills the full hero and fades toward edges */}
-        <GridPattern />
-
         {/* Secondary glow orb — bottom-right quadrant for depth */}
         <GlowOrb
-          size={480}
+          size={600}
           color="#3b82f6"
           className="absolute -bottom-24 -right-24"
         />
 
         {/* Geometric accent — top-right corner, partially clipped */}
         <GeometricAccent
-          size={340}
-          className="absolute -top-8 -right-16 opacity-80"
+          size={420}
+          className="absolute -top-8 -right-16"
         />
 
         <div

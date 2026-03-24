@@ -99,9 +99,9 @@ export function GeometricAccent({
           cy="50"
           r="44"
           stroke={color}
-          strokeWidth="0.35"
+          strokeWidth="0.5"
           strokeDasharray="2 5"
-          opacity="0.1"
+          opacity="0.35"
         />
 
         {/*
@@ -122,8 +122,8 @@ export function GeometricAccent({
             rx="28"
             ry="16"
             stroke={color}
-            strokeWidth="0.5"
-            opacity="0.12"
+            strokeWidth="0.75"
+            opacity="0.4"
             transform="rotate(-20, 50, 50)"
           />
           <ellipse
@@ -132,8 +132,8 @@ export function GeometricAccent({
             rx="20"
             ry="30"
             stroke={color}
-            strokeWidth="0.5"
-            opacity="0.1"
+            strokeWidth="0.75"
+            opacity="0.3"
             transform="rotate(35, 50, 50)"
           />
 
@@ -146,8 +146,8 @@ export function GeometricAccent({
               x2={NODES[b].cx}
               y2={NODES[b].cy}
               stroke={color}
-              strokeWidth="0.45"
-              opacity="0.16"
+              strokeWidth="0.7"
+              opacity="0.45"
               strokeLinecap="round"
             />
           ))}

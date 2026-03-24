@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Download, MapPin, Calendar } from "lucide-react";
-import { GridPattern } from "@/components/visuals/GridPattern";
 import { GeometricAccent } from "@/components/visuals/GeometricAccent";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 
@@ -76,7 +75,6 @@ export default function AboutPage() {
         }}
       >
         {/* Background layers */}
-        <GridPattern cellSize={40} opacity={0.04} />
         <GlowOrb
           size={500}
           color="#3b82f6"

@@ -37,7 +37,7 @@ export function GlowOrb({
         height: size,
         borderRadius: "50%",
         background: `radial-gradient(circle at center, ${color} 0%, transparent 70%)`,
-        opacity: 0.15,
+        opacity: 0.45,
         filter: `blur(${Math.round(size * 0.25)}px)`,
         /**
          * GPU-composited via filter — no layout thrashing.

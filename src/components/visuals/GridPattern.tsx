@@ -17,14 +17,14 @@ interface GridPatternProps {
   className?: string;
   /** Grid cell size in px. Default: 40 */
   cellSize?: number;
-  /** Dot opacity (0–1). Default: 0.045 */
+  /** Dot opacity (0–1). Default: 0.18 */
   opacity?: number;
 }
 
 export function GridPattern({
   className = "",
   cellSize = 40,
-  opacity = 0.045,
+  opacity = 0.18,
 }: GridPatternProps) {
   const id = "grid-dot-pattern";
 
@@ -40,9 +40,9 @@ export function GridPattern({
          * the grid from looking like a hard-edged rectangle.
          */
         maskImage:
-          "radial-gradient(ellipse 70% 65% at 50% 50%, black 30%, transparent 100%)",
+          "radial-gradient(ellipse 120% 110% at 50% 50%, black 60%, transparent 100%)",
         WebkitMaskImage:
-          "radial-gradient(ellipse 70% 65% at 50% 50%, black 30%, transparent 100%)",
+          "radial-gradient(ellipse 120% 110% at 50% 50%, black 60%, transparent 100%)",
       }}
     >
       <defs>
