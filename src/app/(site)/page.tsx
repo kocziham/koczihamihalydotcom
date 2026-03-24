@@ -8,6 +8,9 @@ import {
   ArrowRight,
   ChevronRight,
 } from "lucide-react";
+import { GridPattern } from "@/components/visuals/GridPattern";
+import { GlowOrb } from "@/components/visuals/GlowOrb";
+import { GeometricAccent } from "@/components/visuals/GeometricAccent";
 
 export const metadata: Metadata = {
   title: "Mihaly Kocziha — Data & AI Consulting",
@@ -73,22 +76,23 @@ export default function HomePage() {
           paddingRight: "1.5rem",
         }}
       >
-        {/* Radial glow behind headline */}
+        {/* Radial glow behind headline — existing */}
         <div className="hero-glow" aria-hidden="true" />
 
-        {/* Subtle grid texture */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-            maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 80%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 80%)",
-          }}
+        {/* Dot-grid texture — fills the full hero and fades toward edges */}
+        <GridPattern />
+
+        {/* Secondary glow orb — bottom-right quadrant for depth */}
+        <GlowOrb
+          size={480}
+          color="#3b82f6"
+          className="absolute -bottom-24 -right-24"
+        />
+
+        {/* Geometric accent — top-right corner, partially clipped */}
+        <GeometricAccent
+          size={340}
+          className="absolute -top-8 -right-16 opacity-80"
         />
 
         <div
